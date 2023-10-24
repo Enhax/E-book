@@ -120,7 +120,7 @@ nav {
 #item-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 30px;
+    grid-gap: 45px;
 }
 
 .book {
@@ -132,7 +132,7 @@ nav {
 }
 
 .book .inner-book p {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .book .inner-book small {
@@ -145,12 +145,16 @@ nav {
 
 .book-img {
     width: 100%;
+    height:330px;
     transition: transform 0.5s;
 }
 
 .add-cart {
     text-decoration: none;
     color:#333;
+}
+.book p:nth-child(5){
+    text-align:right;
 }
 
 /* ---------- RIGHT SIDEBAR ---------- */
