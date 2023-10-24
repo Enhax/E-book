@@ -129,6 +129,7 @@ const cartItemCount = document.getElementById('cartItemCount');
 const cartCount = document.getElementsByClassName('cart-count');
 let articleCount = document.getElementById('article-count');
 articleCount.textContent = books.length + ' articles';
+cartItemCount.textContent = 0 + ' article(s)';
 
 
 for (let index = 0; index < books.length; index++) {

@@ -257,6 +257,9 @@ nav {
 .inner-book.cart p:nth-child(5) {
     color: #41db51;
 }
+.cart:last-child{
+    font-size:18px;
+}
 
 /* ---------- MEDIA QUERY FOR SMALL SCREENS ---------- */
 
