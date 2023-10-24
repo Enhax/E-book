@@ -148,13 +148,22 @@ nav {
     height:330px;
     transition: transform 0.5s;
 }
+.book h3{
+    font-size:18px;
+}
+.book p{
+    font-size:13px;
+}
 
 .add-cart {
     text-decoration: none;
     color:#333;
 }
-.book p:nth-child(5){
-    text-align:right;
+.book p:nth-child(6){
+    color:#ffaa00;
+}
+.book p:nth-child(7){
+    color:#41db51;
 }
 
 /* ---------- RIGHT SIDEBAR ---------- */

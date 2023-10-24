@@ -62,7 +62,7 @@ const books = [
     },
     {
         ref: '9782211304',
-        img: 'https://static.fnac-static.com/multimedia/Images/FR/NR/28/8a/c9/13208104/1507-1/tsp20230927072630/Les-miserables.jpg',
+        img: 'https://media.e.leclerc/9782218962844_1?op_sharpen=1&resmode=bilin&fmt=pjpeg&qlt=85&wid=450&fit=fit',
         title: 'Les Misérables',
         version: 'Broché - 17 mars, 2021',
         author: 'Victor Hugo',
@@ -141,13 +141,13 @@ for (let index = 0; index < books.length; index++) {
     let bookPrice = document.createElement('p');
     bookPrice.textContent = books[index].price;
     let bookAuthor = document.createElement('small');
-    bookAuthor.innerHTML = books[index].author + '<br>';
+    bookAuthor.innerHTML = '<b>' + books[index].author +'</b><br>';
     bookRating = document.createElement('p');
     bookRating.innerHTML = `<i class="fa-solid fa-star"></i>
     <i class="fa-solid fa-star"></i>
     <i class="fa-solid fa-star"></i>
     <i class="fa-solid fa-star-half-stroke"></i>
-    <i class="fa-regular fa-star"></i><br>`;
+    <i class="fa-regular fa-star"></i><br><br>`;
     let bookAddCart = document.createElement('a');
     bookAddCart.innerHTML = 'Ajouter au panier <i class="fa-solid fa-cart-plus"></i>';
 
@@ -155,9 +155,9 @@ for (let index = 0; index < books.length; index++) {
     book.appendChild(bookInner);
     book.appendChild(bookTitle);
     book.appendChild(bookVersion);
-    book.appendChild(bookPrice);
     book.appendChild(bookAuthor);
     book.appendChild(bookRating);
+    book.appendChild(bookPrice);
     book.appendChild(bookAddCart);
 
     itemList.appendChild(book);
