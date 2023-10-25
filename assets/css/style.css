@@ -241,15 +241,15 @@ nav {
     width:100%;
 }
 .book-img.cart { 
-    width:120px;
+    width:110px;
     margin-right:50px;
     height:unset;
 }
 .book .cart h3{
-    font-size:18px;
+    font-size:16px;
 }
 .book .cart p{
-    font-size:16px;
+    font-size:14px;
 }
 .inner-book.cart p:nth-child(4) {
     color: #ffaa00;

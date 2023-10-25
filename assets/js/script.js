@@ -183,7 +183,7 @@ const books = [
 
 ];
 
-
+let addCart = document.getElementsByClassName('add-cart');
 const itemList = document.getElementById('item-list');
 const cartItemCount = document.getElementById('cartItemCount');
 const cartCount = document.getElementsByClassName('cart-count');
@@ -229,7 +229,6 @@ for (let index = 0; index < books.length; index++) {
     book.appendChild(bookAddCart);
     itemList.appendChild(book);
 
-
     //GESTION DU STOCK
 
     if (books[index].quantity >= 5) {
@@ -238,10 +237,7 @@ for (let index = 0; index < books.length; index++) {
     else {
         bookQuantity.style.color = '#db0001'
     };
-
 }
-let addCart = document.getElementsByClassName('add-cart');
-
 
 // AJOUT DES PRODUITS AU PANIER
 for (let index = 0; index < books.length; index++) {
