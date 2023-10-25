@@ -204,8 +204,9 @@ nav {
     top: 100px;
     background-color: #fff;
     align-self: flex-start;
-    height: calc(300vh - 100px);
+    height: calc(98vh - 100px);
     padding: 30px 4%;
+    overflow:auto;
 }
 
 .right-sidebar hr {
@@ -259,6 +260,9 @@ nav {
 }
 .cart:last-child{
     font-size:18px;
+}
+.total{
+    margin-right:20px;
 }
 
 /* ---------- MEDIA QUERY FOR SMALL SCREENS ---------- */
