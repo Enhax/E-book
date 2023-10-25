@@ -183,7 +183,6 @@ const books = [
 
 ];
 
-
 const itemList = document.getElementById('item-list');
 const cartItemCount = document.getElementById('cartItemCount');
 const cartCount = document.getElementsByClassName('cart-count');
@@ -191,7 +190,7 @@ let articleCount = document.getElementById('article-count');
 
 articleCount.textContent = books.length + ' articles';
 let bookInCartQuantity = 0
-let cartItemCountOperation = cartItemCount.textContent = bookInCartQuantity + ' articles'
+let cartItemCountOperation = cartItemCount.textContent = bookInCartQuantity + ' article'
 let priceTotal = document.getElementById('priceTotal');
 let number = 0.00;
 priceTotal.textContent = number + '.00 €';
@@ -213,7 +212,7 @@ for (let index = 0; index < books.length; index++) {
     bookQuantity = document.createElement('p');
     bookQuantity.innerHTML = '<br>' + '<small id="quantity-color">Quantité : </small>' + books[index].quantity;
     let bookPrice = document.createElement('p');
-    bookPrice.textContent = books[index].price + ' €';
+    bookPrice.textContent = books[index].price.toFixed(2) + ' €';
     let bookAuthor = document.createElement('small');
     bookAuthor.innerHTML = '<b>' + books[index].author + '</b><br>';
     bookRating = document.createElement('p');
@@ -247,16 +246,14 @@ let addCart = document.getElementsByClassName('add-cart');
 for (let index = 0; index < books.length; index++) {
     addCart[index].addEventListener('click', () => {
 
-
         number = number + books[index].price
         priceTotal.textContent = number.toFixed(2) + ' €'
         bookInCartQuantity = bookInCartQuantity + 1
         cartItemCount.textContent = bookInCartQuantity + ' article'
 
-        if (bookInCartQuantity != 1) {
+        if (bookInCartQuantity != 1 && bookInCartQuantity != 0) {
             cartItemCount.textContent += 's'
         }
-
 
         let book = document.createElement('div');
         book.className += 'book';
@@ -273,7 +270,7 @@ for (let index = 0; index < books.length; index++) {
         let bookVersion = document.createElement('p');
         bookVersion.textContent = books[index].version;
         let bookPrice = document.createElement('p');
-        bookPrice.innerHTML = '<br>' + books[index].price + ' €';
+        bookPrice.innerHTML = '<br>' + books[index].price.toFixed(2) + ' €';
         let bookAuthor = document.createElement('small');
         bookAuthor.innerHTML = '<b>' + books[index].author + '</b><br>';
         bookRating = document.createElement('p');
@@ -296,11 +293,12 @@ for (let index = 0; index < books.length; index++) {
 
         //RETIRER DES PRODUITS DU PANIER
         bookRemoveCart.addEventListener('click', () => {
-            number = number - books[index].price
-            priceTotal.textContent = number.toFixed(2) + ' €'
+            
+            number = (number - books[index].price).toFixed(2);
+            priceTotal.textContent = number + ' €'
             bookInCartQuantity = bookInCartQuantity - 1
             cartItemCount.textContent = bookInCartQuantity + ' article'
-            if (bookInCartQuantity < 1) {
+            if (bookInCartQuantity != 1 && bookInCartQuantity != 0) {
                 cartItemCount.textContent += 's'
             }
             cart.removeChild(book);
