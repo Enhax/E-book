@@ -293,8 +293,7 @@ for (let index = 0; index < books.length; index++) {
 
         //RETIRER DES PRODUITS DU PANIER
         bookRemoveCart.addEventListener('click', () => {
-            
-            number = (number - books[index].price).toFixed(2);
+            number = number - books[index].price;
             priceTotal.textContent = number + ' €'
             bookInCartQuantity = bookInCartQuantity - 1
             cartItemCount.textContent = bookInCartQuantity + ' article'
