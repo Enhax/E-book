@@ -294,7 +294,7 @@ for (let index = 0; index < books.length; index++) {
         //RETIRER DES PRODUITS DU PANIER
         bookRemoveCart.addEventListener('click', () => {
             number = parseFloat((number - books[index].price).toFixed(2));
-            priceTotal.textContent = number + ' €'
+            priceTotal.textContent = number.toFixed(2) + ' €'
             bookInCartQuantity = bookInCartQuantity - 1
             cartItemCount.textContent = bookInCartQuantity + ' article'
             if (bookInCartQuantity != 1 && bookInCartQuantity != 0) {
