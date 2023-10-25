@@ -11,7 +11,7 @@ const books = [
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
         <i class="fa-regular fa-star"></i><br>`,
-        price: '28.70',
+        price: 28.70,
         add: 'Ajouter au panier <i class="fa-solid fa-cart-plus"></i>',
     },
     {
@@ -26,7 +26,7 @@ const books = [
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star-half-stroke"></i>
         <i class="fa-regular fa-star"></i><br>`,
-        price: '11.27',
+        price: 11.27,
         add: 'Ajouter au panier <i class="fa-solid fa-cart-plus"></i>',
     },
     {
@@ -41,7 +41,7 @@ const books = [
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star-half-stroke"></i><br>`,
-        price: '15.79',
+        price: 15.79,
         add: 'Ajouter au panier <i class="fa-solid fa-cart-plus"></i>',
     },
     {
@@ -56,7 +56,7 @@ const books = [
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star-half-stroke"></i>
         <i class="fa-regular fa-star"></i><br>`,
-        price: '12.91',
+        price: 12.91,
         add: 'Ajouter au panier <i class="fa-solid fa-cart-plus"></i>',
     },
     {
@@ -71,7 +71,7 @@ const books = [
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
         <i class="fa-regular fa-star"></i><br>`,
-        price: '11.48',
+        price: 11.48,
         add: 'Ajouter au panier <i class="fa-solid fa-cart-plus"></i>',
     },
     {
@@ -87,7 +87,7 @@ const books = [
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star-half-stroke"></i>
         <i class="fa-regular fa-star"></i><br>`,
-        price: '5.50',
+        price: 5.50,
         add: 'Ajouter au panier <i class="fa-solid fa-cart-plus"></i>',
     },
     {
@@ -102,7 +102,7 @@ const books = [
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star-half-stroke"></i><br>`,
-        price: '15.00',
+        price: 15.00,
         add: 'Ajouter au panier <i class="fa-solid fa-cart-plus"></i>',
     },
     {
@@ -117,7 +117,7 @@ const books = [
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star-half-stroke"></i>
         <i class="fa-regular fa-star"></i><br>`,
-        price: '10.27',
+        price: 10.27,
         add: 'Ajouter au panier <i class="fa-solid fa-cart-plus"></i>',
     },
     {
@@ -132,7 +132,7 @@ const books = [
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star-half-stroke"></i>
         <i class="fa-regular fa-star"></i><br>`,
-        price: '9.94',
+        price: 9.94,
         add: 'Ajouter au panier <i class="fa-solid fa-cart-plus"></i>',
     },
     {
@@ -147,7 +147,7 @@ const books = [
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star-half-stroke"></i><br>`,
-        price: '9.21',
+        price: 9.21,
         add: 'Ajouter au panier <i class="fa-solid fa-cart-plus"></i>',
     },
     {
@@ -162,7 +162,7 @@ const books = [
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star-half-stroke"></i>
         <i class="fa-regular fa-star"></i><br>`,
-        price: '23.99',
+        price: 23.99,
         add: 'Ajouter au panier <i class="fa-solid fa-cart-plus"></i>',
     },
     {
@@ -177,21 +177,25 @@ const books = [
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star-half-stroke"></i>
         <i class="fa-regular fa-star"></i><br>`,
-        price: '7.93',
+        price: 7.93,
         add: `Ajouter au panier  <i class="fa-solid fa-cart-plus"></i>`,
     },
 
 ];
 
-let addCart = document.getElementsByClassName('add-cart');
+
 const itemList = document.getElementById('item-list');
 const cartItemCount = document.getElementById('cartItemCount');
 const cartCount = document.getElementsByClassName('cart-count');
 let articleCount = document.getElementById('article-count');
+
 articleCount.textContent = books.length + ' articles';
-cartItemCount.textContent = 0 + ' article(s)';
-let number = 0
-const cartItemCountOperation = cartItemCount.textContent = number + ' article(s)'
+let bookInCartQuantity = 0
+let cartItemCountOperation = cartItemCount.textContent = bookInCartQuantity + ' articles'
+let priceTotal = document.getElementById('priceTotal');
+let number = 0.00;
+priceTotal.textContent = number + '.00 €';
+
 
 // CREATION DES PRODUITS SUR LA PAGE PRINCIPALE
 for (let index = 0; index < books.length; index++) {
@@ -238,12 +242,22 @@ for (let index = 0; index < books.length; index++) {
         bookQuantity.style.color = '#db0001'
     };
 }
-
+let addCart = document.getElementsByClassName('add-cart');
 // AJOUT DES PRODUITS AU PANIER
 for (let index = 0; index < books.length; index++) {
     addCart[index].addEventListener('click', () => {
-        number = number + 1
-        cartItemCount.textContent = number + ' article(s)'
+
+
+        number = number + books[index].price
+        priceTotal.textContent = number.toFixed(2) + ' €'
+        bookInCartQuantity = bookInCartQuantity + 1
+        cartItemCount.textContent = bookInCartQuantity + ' article'
+
+        if (bookInCartQuantity != 1) {
+            cartItemCount.textContent += 's'
+        }
+
+
         let book = document.createElement('div');
         book.className += 'book';
         book.className += ' cart';
@@ -282,11 +296,18 @@ for (let index = 0; index < books.length; index++) {
 
         //RETIRER DES PRODUITS DU PANIER
         bookRemoveCart.addEventListener('click', () => {
-            number = number - 1
-            cartItemCount.textContent = number + ' article(s)'
+            number = number - books[index].price
+            priceTotal.textContent = number.toFixed(2) + ' €'
+            bookInCartQuantity = bookInCartQuantity - 1
+            cartItemCount.textContent = bookInCartQuantity + ' article'
+            if (bookInCartQuantity < 1) {
+                cartItemCount.textContent += 's'
+            }
             cart.removeChild(book);
         })
 
     })
 }
+
+
 

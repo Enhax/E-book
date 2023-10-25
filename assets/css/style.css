@@ -258,12 +258,17 @@ nav {
 .cart:last-child{
     font-size:18px;
 }
-.total{
-    margin-right:20px;
+#priceTotalContainer {
+    display: flex;
+    align-items: baseline;
+}
+#priceTotalContainer .fa-cart-shopping {
+    margin-left: 7px;
 }
 #quantity-color{
     color:#333;
 }
+
 
 /* ---------- MEDIA QUERY FOR SMALL SCREENS ---------- */
 
