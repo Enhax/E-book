@@ -9,14 +9,14 @@ const books = [
         rating: `<i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star-half-stroke"></i>
+        <i class="fa-solid fa-star"></i>
         <i class="fa-regular fa-star"></i><br>`,
         price: '28.70',
         add: 'Ajouter au panier <i class="fa-solid fa-cart-plus"></i>',
     },
     {
         ref: '054792822X',
-        quantity: 15,
+        quantity: 4,
         img: 'https://m.media-amazon.com/images/I/51gFkMOpo+L.jpg',
         title: 'The Lord of the Ring',
         version: 'Version reliée',
@@ -31,7 +31,7 @@ const books = [
     },
     {
         ref: '1338635174',
-        quantity: 15,
+        quantity: 5,
         img: 'https://m.media-amazon.com/images/I/61kMbMCmXIL._SL1213_.jpg',
         title: 'The Ballad of Songbirds',
         version: 'First Edition',
@@ -39,14 +39,14 @@ const books = [
         rating: `<i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star-half-stroke"></i>
-        <i class="fa-regular fa-star"></i><br>`,
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star-half-stroke"></i><br>`,
         price: '15.79',
         add: 'Ajouter au panier <i class="fa-solid fa-cart-plus"></i>',
     },
     {
         ref: '0545586178',
-        quantity: 15,
+        quantity: 7,
         img: 'https://m.media-amazon.com/images/I/61fxYRmx1pL._SL1200_.jpg',
         title: 'Catching Fire',
         version: 'Reprint edition',
@@ -61,7 +61,7 @@ const books = [
     },
     {
         ref: 'B003XF1XOQ',
-        quantity: 15,
+        quantity: 1,
         img: 'https://m.media-amazon.com/images/I/71Cpfb-DMIL._SL1500_.jpg',
         title: 'Mockingjay',
         version: '1st edition',
@@ -69,7 +69,7 @@ const books = [
         rating: `<i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star-half-stroke"></i>
+        <i class="fa-solid fa-star"></i>
         <i class="fa-regular fa-star"></i><br>`,
         price: '11.48',
         add: 'Ajouter au panier <i class="fa-solid fa-cart-plus"></i>',
@@ -77,7 +77,7 @@ const books = [
     {
 
         ref: '2253014990',
-        quantity: 15,
+        quantity: 9,
         img: 'https://static.fnac-static.com/multimedia/Images/FR/NR/f6/04/a9/11076854/1507-1/tsp20191207070747/Les-Contemplations-Livres-I-a-IV-Bac-2020.jpg',
         title: 'Les Contemplations',
         version: 'Poche',
@@ -100,8 +100,8 @@ const books = [
         rating: `<i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star-half-stroke"></i>
-        <i class="fa-regular fa-star"></i><br>`,
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star-half-stroke"></i><br>`,
         price: '15.00',
         add: 'Ajouter au panier <i class="fa-solid fa-cart-plus"></i>',
     },
@@ -145,8 +145,8 @@ const books = [
         rating: `<i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star-half-stroke"></i>
-        <i class="fa-regular fa-star"></i><br>`,
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star-half-stroke"></i><br>`,
         price: '9.21',
         add: 'Ajouter au panier <i class="fa-solid fa-cart-plus"></i>',
     },
@@ -190,8 +190,10 @@ const cartCount = document.getElementsByClassName('cart-count');
 let articleCount = document.getElementById('article-count');
 articleCount.textContent = books.length + ' articles';
 cartItemCount.textContent = 0 + ' article(s)';
+let number = 0
+const cartItemCountOperation = cartItemCount.textContent = number + ' article(s)'
 
-
+// CREATION DES PRODUITS SUR LA PAGE PRINCIPALE
 for (let index = 0; index < books.length; index++) {
     let book = document.createElement('div');
     book.className += 'book';
@@ -204,6 +206,8 @@ for (let index = 0; index < books.length; index++) {
     bookTitle.textContent = books[index].title;
     let bookVersion = document.createElement('p');
     bookVersion.textContent = books[index].version;
+    bookQuantity = document.createElement('p');
+    bookQuantity.innerHTML = '<br>' + '<small id="quantity-color">Quantité : </small>' + books[index].quantity;
     let bookPrice = document.createElement('p');
     bookPrice.textContent = books[index].price + ' €';
     let bookAuthor = document.createElement('small');
@@ -220,18 +224,30 @@ for (let index = 0; index < books.length; index++) {
     book.appendChild(bookVersion);
     book.appendChild(bookAuthor);
     book.appendChild(bookRating);
+    book.appendChild(bookQuantity);
     book.appendChild(bookPrice);
     book.appendChild(bookAddCart);
     itemList.appendChild(book);
 
 
+    //GESTION DU STOCK
+
+    if (books[index].quantity >= 5) {
+        bookQuantity.style.color = '#14db51'
+    }
+    else {
+        bookQuantity.style.color = '#db0001'
+    };
 
 }
 let addCart = document.getElementsByClassName('add-cart');
 
+
+// AJOUT DES PRODUITS AU PANIER
 for (let index = 0; index < books.length; index++) {
     addCart[index].addEventListener('click', () => {
-        // cartItemCount.textContent = cartCount.length + Number(+1);
+        number = number + 1
+        cartItemCount.textContent = number + ' article(s)'
         let book = document.createElement('div');
         book.className += 'book';
         book.className += ' cart';
@@ -247,7 +263,7 @@ for (let index = 0; index < books.length; index++) {
         let bookVersion = document.createElement('p');
         bookVersion.textContent = books[index].version;
         let bookPrice = document.createElement('p');
-        bookPrice.textContent = books[index].price + ' €';
+        bookPrice.innerHTML = '<br>' + books[index].price + ' €';
         let bookAuthor = document.createElement('small');
         bookAuthor.innerHTML = '<b>' + books[index].author + '</b><br>';
         bookRating = document.createElement('p');
@@ -256,7 +272,6 @@ for (let index = 0; index < books.length; index++) {
         bookRemoveCart.innerHTML = 'Retirer du panier <i class="fa-solid fa-xmark"></i>';
         bookRemoveCart.className += 'add-cart';
         bookRemoveCart.className += ' cart';
-
 
         book.appendChild(bookImg);
         book.appendChild(bookInner);
@@ -268,12 +283,14 @@ for (let index = 0; index < books.length; index++) {
         bookInner.appendChild(bookRemoveCart);
         cart.appendChild(book);
 
-        bookRemoveCart.addEventListener('click', ()=>{
-            // cartItemCount.innerHTML += cartCount.length;
-            cart.removeChild(book);        
+
+        //RETIRER DES PRODUITS DU PANIER
+        bookRemoveCart.addEventListener('click', () => {
+            number = number - 1
+            cartItemCount.textContent = number + ' article(s)'
+            cart.removeChild(book);
         })
 
     })
-
-    
 }
+
