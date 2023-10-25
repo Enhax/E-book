@@ -125,7 +125,7 @@ nav {
     flex-basis: 68%;
     margin-top: 20px;
     background-color: #fff;
-    min-height: 300vh;
+    min-height: 100vh;
     align-self: flex-start;
     padding: 30px 4%;
 }
