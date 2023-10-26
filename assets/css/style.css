@@ -41,16 +41,18 @@ nav {
     display: flex;
     align-items: center;
 }
-.search{
-    margin-left:20px;
-    width:390px;
+
+.search {
+    margin-left: 20px;
+    width: 390px;
     background-color: #fff;
-    border-radius: 30px; 
+    border-radius: 30px;
 }
+
 .navbar-left img {
-    width:14px;
-    margin-left:10px;
-    margin-bottom:-2px;
+    width: 14px;
+    margin-left: 10px;
+    margin-bottom: -2px;
 }
 
 .navbar-left input {
@@ -58,7 +60,7 @@ nav {
     border: 0;
     outline: none;
     background: transparent;
-    font-size:16px;
+    font-size: 16px;
 
 }
 
@@ -146,7 +148,13 @@ nav {
 #item-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 45px;
+    grid-auto-rows: auto;
+    grid-gap: 40px;
+}
+.book-img {
+    height:330px;
+    width: 100%;
+    transition: transform 0.5s;
 }
 
 .book {
@@ -169,12 +177,6 @@ nav {
     transform: scale(1.02);
 }
 
-.book-img {
-    width: 100%;
-    height: 330px;
-    transition: transform 0.5s;
-}
-
 .book h3 {
     font-size: 18px;
 }
@@ -188,12 +190,15 @@ nav {
     color: #333;
 }
 
-.book p:nth-child(6) {
+.book p:nth-child(5) {
     color: #ffaa00;
 }
 
-.book p:nth-child(7) {
-    color: #41db51;
+.green{
+    color:#14db51;
+}
+.red{
+    color:#db0001;
 }
 
 /* ---------- RIGHT SIDEBAR ---------- */
@@ -206,7 +211,7 @@ nav {
     align-self: flex-start;
     height: calc(98vh - 100px);
     padding: 30px 4%;
-    overflow:auto;
+    overflow: auto;
 }
 
 .right-sidebar hr {
@@ -233,40 +238,48 @@ nav {
     align-items: center;
 }
 
-.book.cart {
-    display:flex;
+.cart {
+    display: flex;
     align-items: center;
     padding-top: 20px;
     font-size: 12px;
-    width:100%;
+    width: 100%;
+    cursor:pointer;
 }
-.book-img.cart { 
-    width:110px;
-    margin-right:50px;
-    height:unset;
+
+.img-cart {
+    width: 115px;
+    margin-right: 50px;
 }
-.book .cart h3{
-    font-size:16px;
+
+.cart h3 {
+    font-size: 14px;
 }
-.book .cart p{
-    font-size:14px;
+
+.cart p {
+    font-size: 12px;
 }
-.inner-book.cart p:nth-child(4) {
+
+.cart-rating{
     color: #ffaa00;
-    font-size:12px;
+    font-size: 12px;
 }
-.cart:last-child{
-    font-size:18px;
+
+.cart:last-child {
+    font-size: 16px;
 }
+
 #priceTotalContainer {
     display: flex;
     align-items: baseline;
 }
+
 #priceTotalContainer .fa-cart-shopping {
     margin-left: 7px;
 }
-#quantity-color{
-    color:#333;
+
+#quantity-color {
+    color: #333;
 }
 
 
@@ -277,8 +290,9 @@ nav {
     #logo {
         font-size: 14px;
     }
-    .search{
-        display:none;
+
+    .search {
+        display: none;
     }
 
     .navbar-right a img {
