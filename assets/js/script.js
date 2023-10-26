@@ -7,7 +7,7 @@ const books = [
         title: 'The Hobbit',
         version: 'Hardcover',
         author: 'J.R.R. Tolkien',
-        rating: 5,
+        rating: 4.5,
         price: 28.70,
     },
     {
@@ -129,7 +129,6 @@ const itemList = document.getElementById('item-list');
 const cartItemCount = document.getElementById('cartItemCount');
 const cartCount = document.getElementsByClassName('cart-count');
 let articleCount = document.getElementById('article-count');
-
 articleCount.textContent = books.length + ' articles';
 let bookInCartQuantity = 0;
 let cartItemCountOperation = cartItemCount.textContent = bookInCartQuantity + ' article';
