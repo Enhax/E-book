@@ -75,7 +75,7 @@ const books = [
         ref: '0316015849',
         quantity: 12,
         img: 'https://m.media-amazon.com/images/I/615ZIxEDozL._SL1500_.jpg',
-        title: 'Twilight;',
+        title: 'Twilight',
         version: 'Paperback',
         author: 'Stephenie Meyer',
         rating: 2.5,
@@ -296,7 +296,7 @@ function createPageCart() {
 
 
             let bookRemoveCart = document.createElement('a');
-            bookRemoveCart.innerHTML = 'Retirer du panier <i class="fa-solid fa-xmark"></i>';
+            bookRemoveCart.innerHTML = 'Retirer du panier &nbsp; <i class="fa-solid fa-xmark" style="font-size:17px"></i>';
             bookRemoveCart.className += 'add-cart';
             bookRemoveCart.className += ' cart';
 

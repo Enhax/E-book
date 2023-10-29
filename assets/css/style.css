@@ -31,7 +31,7 @@ nav {
 }
 
 #logo {
-    font-size: 35px;
+    font-size: 38px;
     font-weight: 800;
     color: #333;
     margin-right: 20px;
@@ -267,6 +267,7 @@ nav {
 
 .cart:last-child {
     font-size: 16px;
+    margin-right:5px;
 }
 
 #priceTotalContainer {
@@ -326,8 +327,9 @@ nav {
     }
 
     .main-content {
-        flex-basis: 100%;
+        width:100%;
         order: 2;
+        position:relative;
     }
 
     .right-sidebar {
@@ -339,10 +341,21 @@ nav {
         height: unset;
         padding: 30px 4%;
     }
+    .items-title h1{
+        font-size:20px;
+    }
+    .book h3{
+        font-size:22px;
+    }
+    .cart h3{
+        font-size:16px;
+    }
 
-    .items-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        grid-gap: 20px;
+    .book-img{
+        height:unset;
+        width:90%;
+    }
+    .cart:last-child{
+        font-size: 12px;
     }
 }
