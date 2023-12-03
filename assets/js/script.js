@@ -135,6 +135,7 @@ let cartItemCountOperation = cartItemCount.textContent = bookInCartQuantity + ' 
 let priceTotal = document.getElementById('priceTotal');
 let number = 0.00;
 priceTotal.textContent = number + '.00 €';
+const fullCart = document.getElementById('full-cart');
 
 
 // CREATION DES PRODUITS SUR LA PAGE PRINCIPALE
@@ -194,7 +195,6 @@ function createPageItems() {
         }
         calcRating();
 
-
         let bookAddCart = document.createElement('a');
         bookAddCart.innerHTML = 'Ajouter au panier <i class="fa-solid fa-cart-plus"></i>';
         bookAddCart.className += 'add-cart';
@@ -220,7 +220,6 @@ function createPageItems() {
     }
 }
 createPageItems();
-
 
 // AJOUT DES PRODUITS AU PANIER
 function createPageCart() {
@@ -309,8 +308,6 @@ function createPageCart() {
             bookInner.appendChild(bookPrice);
             bookInner.appendChild(bookRemoveCart);
             cart.appendChild(book);
-
-
             //RETIRER DES PRODUITS DU PANIER
             bookRemoveCart.addEventListener('click', () => {
 
@@ -323,10 +320,17 @@ function createPageCart() {
                 }
                 cart.removeChild(book);
             })
-
         })
     }
 }
-createPageCart();
+createPageCart(fullCart.innerHTML);
 
+/* function saveData() {
+    localStorage.setItem('data', fullCart.innerHTML)
+};
 
+function showCart() {
+    fullCart.innerHTML = localStorage.getItem('data')
+    console.log(localStorage.getItem('data'));
+};
+showCart() */
